@@ -1,0 +1,215 @@
+.dashboard {
+  position: relative;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.dashboard-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.dashboard-header .page-eyebrow { margin-bottom: 10px; }
+
+.dashboard-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.dashboard-header-actions { display: flex; gap: 8px; }
+
+
+.stat-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  border: 0.5px solid var(--border-default);
+}
+
+.stat-cell {
+  flex: 1;
+  padding: 18px 24px;
+  border-left: 0.5px solid var(--border-default);
+}
+.stat-cell:first-child { border-left: none; }
+
+.stat-cell-value {
+  font-family: var(--font-mono);
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-cell-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+  margin-top: 8px;
+}
+
+
+.contracts-table-wrapper {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.contracts-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.contracts-table thead tr {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.contracts-table th {
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.contracts-table-row {
+  border-bottom: 1px solid var(--border-subtle);
+  border-left: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+.contracts-table-row:last-child { border-bottom: none; }
+.contracts-table-row:hover {
+  background: var(--bg-elevated);
+  border-left-color: var(--ai-primary);
+}
+
+.contracts-table td {
+  padding: 12px 14px;
+  vertical-align: middle;
+}
+
+.doc-cell { display: flex; align-items: center; gap: 10px; }
+
+.doc-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-hover);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.doc-name {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 13px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.risk-score-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 100px;
+}
+
+.risk-score-bar-track {
+  flex: 1;
+  height: 4px;
+  background: var(--bg-hover);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.risk-score-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width var(--t-normal);
+}
+
+.risk-score-num {
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  width: 24px;
+  text-align: right;
+}
+
+
+.upload-drop-zone {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 28px;
+  border: 2px dashed var(--border-default);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all var(--t-normal);
+  text-align: center;
+}
+
+.upload-drop-zone:hover {
+  border-color: var(--ai-primary);
+  background: var(--ai-glow);
+  box-shadow: 0 0 24px var(--ai-glow);
+  transform: translateY(-2px);
+}
+
+.upload-zone-icon {
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+  transition: color var(--t-fast);
+}
+.upload-drop-zone:hover .upload-zone-icon { color: var(--ai-secondary); }
+
+.upload-zone-text { font-size: 14px; }
+.text-ai { color: var(--ai-secondary); }
+
+.upload-zone-langs {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.lang-pill {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-tertiary);
+}

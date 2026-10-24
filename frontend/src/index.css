@@ -1,0 +1,551 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600&family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+
+:root {
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  
+  --bg-canvas:   #f8f9fa;
+  --bg-surface:  #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-hover:    #f1f5f9;
+  --bg-active:   #e2e8f0;
+
+  
+  --border-subtle:  rgba(0, 0, 0, 0.05);
+  --border-default: rgba(0, 0, 0, 0.10);
+  --border-strong:  rgba(0, 0, 0, 0.15);
+
+  
+  --text-primary:   #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary:  #94a3b8;
+  --text-disabled:  #cbd5e1;
+
+  
+  --ai-primary:    #6366f1;
+  --ai-secondary:  #818cf8;
+  --ai-glow:       rgba(99, 102, 241, 0.18);
+  --ai-glow-strong: rgba(99, 102, 241, 0.35);
+
+  
+  --risk-critical:    #ef4444;
+  --risk-critical-bg: rgba(239, 68, 68, 0.10);
+  --risk-critical-border: rgba(239, 68, 68, 0.25);
+
+  --risk-warning:    #f59e0b;
+  --risk-warning-bg: rgba(245, 158, 11, 0.10);
+  --risk-warning-border: rgba(245, 158, 11, 0.25);
+
+  --risk-safe:    #10b981;
+  --risk-safe-bg: rgba(16, 185, 129, 0.10);
+  --risk-safe-border: rgba(16, 185, 129, 0.25);
+
+  --risk-missing:    #64748b;
+  --risk-missing-bg: rgba(100, 116, 139, 0.12);
+  --risk-missing-border: rgba(100, 116, 139, 0.25);
+
+  
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  
+  --t-fast:   120ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t-slow:   350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+
+[data-theme="dark"] {
+  --bg-canvas:   #0f172a;
+  --bg-surface:  #1e293b;
+  --bg-elevated: #1e293b;
+  --bg-hover:    #334155;
+  --bg-active:   #475569;
+
+  --border-subtle:  rgba(255, 255, 255, 0.05);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong:  rgba(255, 255, 255, 0.18);
+
+  --text-primary:   #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-tertiary:  #64748b;
+  --text-disabled:  #475569;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+
+[data-theme="light"] {
+  --bg-canvas:   #f8f9fa;
+  --bg-surface:  #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-hover:    #f1f5f9;
+  --bg-active:   #e2e8f0;
+
+  --border-subtle:  rgba(0, 0, 0, 0.05);
+  --border-default: rgba(0, 0, 0, 0.10);
+  --border-strong:  rgba(0, 0, 0, 0.15);
+
+  --text-primary:   #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary:  #94a3b8;
+  --text-disabled:  #cbd5e1;
+}
+
+
+*, *::before, *::after {
+  transition: background-color 200ms ease, border-color 200ms ease, color 100ms ease;
+}
+
+
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, textarea, select { font-family: inherit; }
+
+
+h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; }
+h2 { font-size: 1.75rem; font-weight: 650; letter-spacing: -0.03em; line-height: 1.2; }
+h3 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; }
+h4 { font-size: 1rem;    font-weight: 600; letter-spacing: -0.01em; }
+h5 { font-size: 0.875rem; font-weight: 600; }
+p  { color: var(--text-secondary); line-height: 1.6; }
+
+
+.lang-hi, [lang="hi"] {
+  font-family: var(--font-devanagari);
+  line-height: 1.9;
+}
+
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all var(--t-fast);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--ai-primary);
+  color: #fff;
+  border: 1px solid rgba(99, 102, 241, 0.5);
+}
+.btn-primary:hover {
+  background: #5254cc;
+  box-shadow: 0 0 20px var(--ai-glow-strong);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+}
+.btn-ghost:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.btn-danger {
+  background: var(--risk-critical-bg);
+  color: var(--risk-critical);
+  border: 1px solid var(--risk-critical-border);
+}
+.btn-danger:hover { background: rgba(239, 68, 68, 0.18); }
+
+.btn-safe {
+  background: var(--risk-safe-bg);
+  color: var(--risk-safe);
+  border: 1px solid var(--risk-safe-border);
+}
+
+.btn-sm { padding: 5px 10px; font-size: 12px; }
+.btn-icon {
+  padding: 6px;
+  background: transparent;
+  color: var(--text-tertiary);
+  border-radius: var(--radius-sm);
+  transition: all var(--t-fast);
+}
+.btn-icon:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.badge-critical { background: var(--risk-critical-bg); color: var(--risk-critical); border-color: var(--risk-critical-border); }
+.badge-warning  { background: var(--risk-warning-bg);  color: var(--risk-warning);  border-color: var(--risk-warning-border); }
+.badge-safe     { background: var(--risk-safe-bg);     color: var(--risk-safe);     border-color: var(--risk-safe-border); }
+.badge-missing  { background: var(--risk-missing-bg);  color: var(--risk-missing);  border-color: var(--risk-missing-border); }
+.badge-ai       { background: var(--ai-glow);          color: var(--ai-secondary);  border-color: rgba(99,102,241,0.3); }
+
+
+.input {
+  width: 100%;
+  padding: 7px 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 13px;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.input::placeholder { color: var(--text-tertiary); }
+.input:focus {
+  outline: none;
+  border-color: var(--ai-primary);
+  box-shadow: 0 0 0 3px var(--ai-glow);
+}
+
+
+.divider {
+  height: 1px;
+  background: var(--border-subtle);
+}
+
+
+.panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.card:hover { border-color: var(--border-default); background: var(--bg-hover); }
+.card.selected { border-color: var(--ai-primary); background: var(--ai-glow); }
+
+
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-elevated) 25%, var(--bg-hover) 50%, var(--bg-elevated) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 12px var(--ai-glow); }
+  50%       { box-shadow: 0 0 28px var(--ai-glow-strong); }
+}
+
+.animate-fade-up  { animation: fadeUp  var(--t-slow) forwards; }
+.animate-fade-in  { animation: fadeIn  var(--t-normal) forwards; }
+.animate-spin     { animation: spin 1s linear infinite; }
+.animate-pulse-glow { animation: pulse-glow 2.5s ease-in-out infinite; }
+
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+
+
+.flex          { display: flex; }
+.flex-col      { flex-direction: column; }
+.flex-1        { flex: 1; }
+.items-center  { align-items: center; }
+.items-start   { align-items: flex-start; }
+.justify-between { justify-content: space-between; }
+.justify-center  { justify-content: center; }
+.justify-end     { justify-content: flex-end; }
+.gap-1  { gap: 4px; }
+.gap-2  { gap: 8px; }
+.gap-3  { gap: 12px; }
+.gap-4  { gap: 16px; }
+.gap-6  { gap: 24px; }
+.gap-8  { gap: 32px; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.overflow-hidden { overflow: hidden; }
+.overflow-y-auto { overflow-y: auto; }
+.min-w-0 { min-width: 0; }
+.text-sm  { font-size: 12px; }
+.text-xs  { font-size: 11px; }
+.font-mono { font-family: var(--font-mono); }
+.text-primary   { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary  { color: var(--text-tertiary); }
+.text-ai        { color: var(--ai-primary); }
+.text-critical  { color: var(--risk-critical); }
+.text-warning   { color: var(--risk-warning); }
+.text-safe      { color: var(--risk-safe); }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+
+/* "Courtroom Luxury" design tokens — every route except the landing page
+   (.app-shell covers Upload/Repository/Settings/Analysis/Profile/Report,
+   .login-page covers the standalone /login route) shares this palette,
+   type system and flat, thin-bordered, shadowless component language. The
+   :root tokens above stay untouched so the landing page is unaffected. */
+.app-shell,
+.login-page {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --bg-canvas:   #f3e6c4;
+  --bg-surface:  #efe0bd;
+  --bg-elevated: #f8f0da;
+  --bg-hover:    #e6d3a8;
+  --bg-active:   #d8b675;
+
+  --border-subtle:  rgba(74, 50, 16, 0.12);
+  --border-default: rgba(74, 50, 16, 0.22);
+  --border-strong:  rgba(74, 50, 16, 0.38);
+
+  --text-primary:   #3a2a10;
+  --text-secondary: #5c431f;
+  --text-tertiary:  #74582e;
+  --text-disabled:  #a4854f;
+
+  --ai-primary:     #a9722f;
+  --ai-secondary:   #c9a04a;
+  --ai-glow:        rgba(169, 114, 47, 0.14);
+  --ai-glow-strong: rgba(169, 114, 47, 0.30);
+
+  --radius-sm: 0px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+}
+
+.app-shell h1, .app-shell h2,
+.login-page h1, .login-page h2 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+/* Shared .btn/.badge/.card/.input (defined above for the landing page) get
+   flattened here for the app shell only — .login-page uses its own
+   component classes, not these shared ones. */
+.app-shell .btn { border-radius: var(--radius-md); }
+
+.app-shell .btn-primary {
+  border: 1px solid var(--ai-primary);
+  color: #2a1a08;
+  box-shadow: none;
+}
+.app-shell .btn-primary:hover {
+  background: #8f5f26;
+  box-shadow: none;
+  transform: none;
+}
+
+.app-shell .btn-ghost:hover { transform: none; }
+
+.app-shell .badge {
+  border-radius: 0;
+  background: none;
+  border: none;
+  border-bottom: 1.5px solid currentColor;
+  padding: 1px 1px 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.03em;
+}
+
+.app-shell .card,
+.app-shell .panel {
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+
+.app-shell .input { border-radius: var(--radius-sm); }
+.app-shell .input:focus { box-shadow: none; border-color: var(--ai-primary); }
+
+.app-shell .skeleton {
+  background: linear-gradient(90deg, var(--bg-elevated) 25%, var(--bg-hover) 50%, var(--bg-elevated) 75%);
+}
+
+
+/* Shared "premium" decorative utilities — reused across /app pages so they
+   read as one system with the landing page (same glow, badge, gradient-text
+   and numbered-card language, not just the same CSS variables). */
+
+/* A thin accent hairline rather than a blurred gradient blob — the soft glow
+   orb is the single most recognizable "generic AI SaaS" background decoration,
+   an editorial legal interface uses a precise rule instead. */
+.page-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ai-primary) 50%, transparent);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border: 1px solid var(--border-default);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+  position: relative;
+  z-index: 1;
+}
+
+.page-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ai-primary);
+  box-shadow: 0 0 8px var(--ai-primary);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--ai-primary), #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Inside the app shell, gradient-text drops the landing page's indigo/purple
+   duotone in favor of a single solid accent — a fade between two hues reads
+   as templated AI branding, a flat authoritative color does not. */
+.app-shell .gradient-text {
+  background: none;
+  -webkit-text-fill-color: unset;
+  color: var(--ai-primary);
+}
+
+.section-number {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-tertiary);
+}
+
+.pipeline-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.pipeline-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.pipeline-node-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ai-glow);
+  color: var(--ai-secondary);
+  border: 0.5px solid var(--border-strong);
+  transition: border-color var(--t-fast);
+}
+
+.pipeline-node:hover .pipeline-node-icon {
+  border-color: var(--ai-primary);
+}
+
+.pipeline-node-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.pipeline-connector {
+  width: 32px;
+  height: 1px;
+  background: var(--border-default);
+  margin: 20px 2px 0;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .pipeline-connector { display: none; }
+}

@@ -1,0 +1,22 @@
+[project]
+name = "vakya-backend"
+version = "0.1.0"
+description = "Vakya Backend FastAPI"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "langgraph",
+    "langchain-community",
+    "langchain-core",
+    "langchain-groq",
+    "PyMuPDF",
+    "pillow",
+    "python-docx",
+    "langdetect",
+    "python-dotenv",
+    "psycopg2-binary",
+    "python-multipart"
+]
+
